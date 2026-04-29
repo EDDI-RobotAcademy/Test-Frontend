@@ -1,0 +1,37 @@
+export const timePickerTokens = {
+  panelBackground: "#ffffff",
+  panelBorderColor: "#e5e7eb",
+  panelBorderRadius: "12px",
+  panelPadding: "8px",
+  panelShadow: "0 12px 32px rgba(15, 23, 42, 0.12)",
+  zIndex: 9999,
+
+  columnGap: "4px",
+  columnWidth: "56px",
+  columnHeight: "200px",
+  columnPadding: "4px",
+  columnSeparatorColor: "#e5e7eb",
+
+  cellHeight: "32px",
+  cellRadius: "6px",
+  cellFontSize: "14px",
+  cellColor: "#111827",
+  cellHoverBackground: "#f3f4f6",
+  cellSelectedBackground: "#111827",
+  cellSelectedColor: "#ffffff",
+  cellDisabledColor: "#d1d5db",
+  cellDisabledCursor: "not-allowed",
+
+  triggerHeight: "40px",
+  triggerPaddingX: "12px",
+  triggerBorderColor: "#d1d5db",
+  triggerBorderRadius: "8px",
+  triggerBackground: "#ffffff",
+  triggerColor: "#111827",
+  triggerPlaceholderColor: "#9ca3af",
+  triggerDisabledBackground: "#f3f4f6",
+
+  separatorColor: "#374151",
+  separatorFontSize: "14px",
+  separatorPaddingX: "2px",
+} as const;
