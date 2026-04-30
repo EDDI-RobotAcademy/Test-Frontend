@@ -1,10 +1,36 @@
+import type { ToggleSize } from "./types";
+
+export interface ToggleSizeToken {
+  height: string;
+  paddingX: string;
+  fontSize: string;
+  borderRadius: string;
+}
+
+export const toggleGroupSizeTokens: Record<ToggleSize, ToggleSizeToken> = {
+  sm: {
+    height: "32px",
+    paddingX: "10px",
+    fontSize: "13px",
+    borderRadius: "6px",
+  },
+  md: {
+    height: "40px",
+    paddingX: "14px",
+    fontSize: "14px",
+    borderRadius: "8px",
+  },
+  lg: {
+    height: "48px",
+    paddingX: "18px",
+    fontSize: "15px",
+    borderRadius: "10px",
+  },
+};
+
 export const toggleGroupTokens = {
   gap: "0px",
   borderColor: "#d1d5db",
-  borderRadius: "8px",
-  paddingX: "12px",
-  paddingY: "8px",
-  fontSize: "14px",
   fontWeight: 500,
   lineHeight: "1.2",
   unselectedBackground: "#ffffff",

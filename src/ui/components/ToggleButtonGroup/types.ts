@@ -4,6 +4,8 @@ export type ToggleSelectionMode = "single" | "multi";
 
 export type ToggleOrientation = "horizontal" | "vertical";
 
+export type ToggleSize = "sm" | "md" | "lg";
+
 export interface ToggleOption {
   value: string;
   label: ReactNode;
@@ -15,6 +17,8 @@ export interface ToggleButtonGroupBaseProps {
   orientation?: ToggleOrientation;
   disabled?: boolean;
   ariaLabel?: string;
+  size?: ToggleSize;
+  fullWidth?: boolean;
 }
 
 export interface ToggleButtonGroupSingleProps extends ToggleButtonGroupBaseProps {

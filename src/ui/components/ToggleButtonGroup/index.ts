@@ -6,4 +6,5 @@ export type {
   ToggleOption,
   ToggleOrientation,
   ToggleSelectionMode,
+  ToggleSize,
 } from "./types";

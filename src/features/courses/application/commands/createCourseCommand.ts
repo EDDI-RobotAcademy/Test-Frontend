@@ -10,7 +10,8 @@ import {
   preferenceAtom,
   submissionErrorAtom,
   submitAttemptedAtom,
-  timeAtom,
+  timeEndAtom,
+  timeStartAtom,
   transportAtom,
 } from "../atoms/courseFormAtoms";
 import { canSubmitAtom } from "../selectors/courseFormSelectors";
@@ -18,7 +19,8 @@ import { canSubmitAtom } from "../selectors/courseFormSelectors";
 export function useCreateCourseCommand() {
   const place = useAtomValue(placeAtom);
   const date = useAtomValue(dateAtom);
-  const time = useAtomValue(timeAtom);
+  const timeStart = useAtomValue(timeStartAtom);
+  const timeEnd = useAtomValue(timeEndAtom);
   const preference = useAtomValue(preferenceAtom);
   const transport = useAtomValue(transportAtom);
   const canSubmit = useAtomValue(canSubmitAtom);
@@ -30,6 +32,11 @@ export function useCreateCourseCommand() {
   return useCallback(async () => {
     setSubmitAttempted(true);
     if (!canSubmit) return;
+
+    const time =
+      timeStart != null && timeEnd != null
+        ? { start: timeStart, end: timeEnd }
+        : null;
 
     setStatus("SUBMITTING");
     setError(null);
@@ -45,7 +52,8 @@ export function useCreateCourseCommand() {
     canSubmit,
     place,
     date,
-    time,
+    timeStart,
+    timeEnd,
     preference,
     transport,
     setStatus,

@@ -32,6 +32,7 @@ export interface TimePickerProps {
   defaultOpen?: boolean;
   onOpenChange?: (open: boolean) => void;
   locale?: string;
+  fullWidth?: boolean;
 }
 
 export type TimeUnit = "hours" | "minutes" | "seconds" | "period";

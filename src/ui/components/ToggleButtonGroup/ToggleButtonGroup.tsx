@@ -8,7 +8,7 @@ import {
   type CSSProperties,
   type KeyboardEvent,
 } from "react";
-import { toggleGroupTokens } from "./tokens";
+import { toggleGroupSizeTokens, toggleGroupTokens } from "./tokens";
 import type {
   ToggleButtonGroupProps,
   ToggleOption,
@@ -56,7 +56,11 @@ export function ToggleButtonGroup(props: ToggleButtonGroupProps) {
     disabled: groupDisabled = false,
     ariaLabel,
     selectionMode,
+    size = "md",
+    fullWidth = false,
   } = props;
+
+  const sizeToken = toggleGroupSizeTokens[size];
 
   const isControlled = props.value !== undefined;
 
@@ -174,26 +178,35 @@ export function ToggleButtonGroup(props: ToggleButtonGroupProps) {
   );
 
   const containerStyle: CSSProperties = {
-    display: "inline-flex",
+    display: fullWidth ? "flex" : "inline-flex",
+    width: fullWidth ? "100%" : undefined,
     flexDirection: orientation === "horizontal" ? "row" : "column",
     gap: toggleGroupTokens.gap,
     border: `1px solid ${toggleGroupTokens.borderColor}`,
-    borderRadius: toggleGroupTokens.borderRadius,
+    borderRadius: sizeToken.borderRadius,
     overflow: "hidden",
     opacity: groupDisabled ? toggleGroupTokens.disabledOpacity : 1,
+    boxSizing: "border-box",
   };
 
   const baseButtonStyle: CSSProperties = {
     appearance: "none",
     border: "none",
     margin: 0,
-    padding: `${toggleGroupTokens.paddingY} ${toggleGroupTokens.paddingX}`,
-    fontSize: toggleGroupTokens.fontSize,
+    paddingBlock: 0,
+    paddingInline: sizeToken.paddingX,
+    height: orientation === "horizontal" ? sizeToken.height : undefined,
+    minHeight:
+      orientation === "vertical" ? sizeToken.height : undefined,
+    fontSize: sizeToken.fontSize,
     fontWeight: toggleGroupTokens.fontWeight,
     lineHeight: toggleGroupTokens.lineHeight,
     cursor: "pointer",
     transition: "background-color 120ms ease, color 120ms ease",
     outlineOffset: "-2px",
+    flex: fullWidth ? 1 : undefined,
+    fontFamily: "inherit",
+    boxSizing: "border-box",
   };
 
   const groupRole = selectionMode === "single" ? "radiogroup" : "group";

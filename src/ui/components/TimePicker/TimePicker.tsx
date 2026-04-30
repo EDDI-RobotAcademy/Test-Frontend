@@ -51,6 +51,7 @@ export function TimePicker(props: TimePickerProps) {
     defaultOpen = false,
     onOpenChange,
     locale,
+    fullWidth = false,
   } = props;
 
   const reactId = useId();
@@ -250,10 +251,12 @@ export function TimePicker(props: TimePickerProps) {
     fontSize: "14px",
     textAlign: "left",
     cursor: disabled ? "not-allowed" : "pointer",
-    display: "inline-flex",
+    display: fullWidth ? "flex" : "inline-flex",
     alignItems: "center",
-    minWidth: "160px",
+    width: fullWidth ? "100%" : undefined,
+    minWidth: fullWidth ? undefined : "160px",
     boxSizing: "border-box",
+    fontFamily: "inherit",
   };
 
   const panelStyle: CSSProperties = {

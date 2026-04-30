@@ -27,7 +27,7 @@ const buttonStyle: CSSProperties = {
 
 export function TooltipHint({ message, ariaLabel = "도움말" }: TooltipHintProps) {
   return (
-    <Tooltip trigger="click" placement="top" content={message}>
+    <Tooltip trigger="hover" placement="top" content={message}>
       <button type="button" aria-label={ariaLabel} style={buttonStyle}>
         ?
       </button>

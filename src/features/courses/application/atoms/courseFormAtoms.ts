@@ -5,7 +5,8 @@ import type { CourseFormStatus } from "../../domain/state/courseFormState";
 
 export const placeAtom = atom<string>("");
 export const dateAtom = atom<Date | null>(null);
-export const timeAtom = atom<TimeValue | null>(null);
+export const timeStartAtom = atom<TimeValue | null>(null);
+export const timeEndAtom = atom<TimeValue | null>(null);
 export const preferenceAtom = atom<string>("");
 export const transportAtom = atom<TransportMode | null>(null);
 
@@ -16,5 +17,6 @@ export const submitAttemptedAtom = atom<boolean>(false);
 
 export const placeTouchedAtom = atom<boolean>(false);
 export const dateTouchedAtom = atom<boolean>(false);
-export const timeTouchedAtom = atom<boolean>(false);
+export const timeStartTouchedAtom = atom<boolean>(false);
+export const timeEndTouchedAtom = atom<boolean>(false);
 export const preferenceTouchedAtom = atom<boolean>(false);
